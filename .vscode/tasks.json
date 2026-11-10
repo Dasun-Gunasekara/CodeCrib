@@ -1,0 +1,30 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start CodeCrib Expo app",
+			"type": "shell",
+			"command": "npm --prefix \".\\CodeCrib\" run start",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Open CodeCrib on Android emulator",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"--prefix",
+				".\\CodeCrib",
+				"run",
+				"android",
+				"--",
+				"--port",
+				"8082"
+			],
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
