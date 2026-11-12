@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "CodeCrib",
+    "slug": "codecrib",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "com.codecrib.app",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.codecrib.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0E1117",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#F6F7F9",
+          "image": "./assets/images/logo.png",
+          "imageWidth": 200,
+          "dark": {
+            "backgroundColor": "#0E1117",
+            "image": "./assets/images/logo-dark.png"
+          }
+        }
+      ],
+      "expo-font"
+    ]
+  }
+}
