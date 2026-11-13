@@ -1,0 +1,8 @@
+[
+  { "language": "JavaScript", "color": "#F7C948", "icon": "logo-javascript" },
+  { "language": "Python", "color": "#3776AB", "icon": "logo-python" },
+  { "language": "Java", "color": "#E76F51", "icon": "cafe-outline" },
+  { "language": "SQL", "color": "#00758F", "icon": "server-outline" },
+  { "language": "HTML/CSS", "color": "#E34F26", "icon": "code-slash-outline" },
+  { "language": "C++", "color": "#5C6BC0", "icon": "hardware-chip-outline" }
+]

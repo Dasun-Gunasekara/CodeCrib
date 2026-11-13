@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "js-001",
+    "title": "Remove Duplicates from an Array",
+    "language": "JavaScript",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Use a Set to keep only one copy of each value while preserving insertion order.",
+    "code": "const values = [3, 1, 3, 2, 1];\nconst seen = new Set();\nconst unique = [];\nfor (const value of values) {\n  if (seen.has(value)) continue;\n  seen.add(value);\n  unique.push(value);\n}\n// The first occurrence keeps its original position.\nconsole.log(unique); // [3, 1, 2]",
+    "tags": [
+      "arrays",
+      "set",
+      "unique",
+      "javascript"
+    ],
+    "commonMistake": "Using indexOf in a loop is slower and easy to get wrong when values repeat.",
+    "createdAt": "2026-09-02T09:00:00.000Z"
+  },
+  {
+    "id": "js-002",
+    "title": "Format a Date String",
+    "language": "JavaScript",
+    "category": "Strings",
+    "difficulty": "Intermediate",
+    "description": "Turn a raw date object into a friendly display string using locale-aware formatting.",
+    "code": "const eventDate = new Date('2026-11-05T09:30:00Z');\nconst label = eventDate.toLocaleDateString('en-GB', {\n  day: '2-digit',\n  month: 'short',\n  year: 'numeric',\n});\nconsole.log(label);",
+    "tags": [
+      "dates",
+      "formatting",
+      "locale",
+      "javascript",
+      "strings"
+    ],
+    "commonMistake": "Forgetting that a date object is in UTC unless you convert it for the user's timezone.",
+    "createdAt": "2026-09-08T09:00:00.000Z"
+  },
+  {
+    "id": "js-003",
+    "title": "Guard Optional Object Data",
+    "language": "JavaScript",
+    "category": "Functions",
+    "difficulty": "Intermediate",
+    "description": "Read nested values safely when the response can be missing fields at any depth.",
+    "code": "const user = { profile: { name: 'Ava' } };\nconst greeting = user?.profile?.name ?? 'Guest';\nconst score = user?.stats?.points ?? 0;\nconsole.log(greeting, score);",
+    "tags": [
+      "optional-chaining",
+      "safe-access",
+      "fallback"
+    ],
+    "commonMistake": "Calling user.profile.name without checking whether profile exists will throw at runtime.",
+    "createdAt": "2026-09-12T09:00:00.000Z"
+  },
+  {
+    "id": "js-004",
+    "title": "Filter Active Users",
+    "language": "JavaScript",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Keep only the records that match a certain condition without mutating the original list.",
+    "code": "const users = [\n  { name: 'Kai', active: true },\n  { name: 'Mia', active: false },\n  { name: 'Noah', active: true },\n];\nconst activeUsers = users.filter((user) => user.active);\nconsole.log(activeUsers.length);",
+    "tags": [
+      "filter",
+      "records",
+      "condition",
+      "javascript"
+    ],
+    "commonMistake": "Using splice inside a loop changes the array while you are iterating and can skip items.",
+    "createdAt": "2026-09-17T09:00:00.000Z"
+  },
+  {
+    "id": "js-005",
+    "title": "Debounce an Input Handler",
+    "language": "JavaScript",
+    "category": "Async",
+    "difficulty": "Intermediate",
+    "description": "Delay a search callback briefly so it does not fire excessively while the user types.",
+    "code": "let timeoutId;\nfunction search(name) {\n  clearTimeout(timeoutId);\n  timeoutId = setTimeout(() => {\n    console.log('Searching for', name);\n  }, 300);\n}\nsearch('react');",
+    "tags": [
+      "debounce",
+      "async",
+      "input",
+      "javascript",
+      "reference"
+    ],
+    "commonMistake": "Forgetting to clear the previous timer, which causes the callback to run too many times.",
+    "createdAt": "2026-09-21T09:00:00.000Z"
+  },
+  {
+    "id": "js-006",
+    "title": "Build a Table Row from Data",
+    "language": "JavaScript",
+    "category": "DOM",
+    "difficulty": "Intermediate",
+    "description": "Create DOM rows from an array of objects and attach them to the page without mixing markup and logic.",
+    "code": "const rows = [\n  { id: 1, name: 'Ava' },\n  { id: 2, name: 'Leo' },\n];\nconst tbody = document.querySelector('tbody');\nrows.forEach(({ id, name }) => {\n  const tr = document.createElement('tr');\n  const idCell = document.createElement('td');\n  const nameCell = document.createElement('td');\n  idCell.textContent = String(id);\n  nameCell.textContent = name;\n  tr.append(idCell, nameCell);\n  tbody.appendChild(tr);\n}); // textContent avoids interpreting data as markup",
+    "tags": [
+      "dom",
+      "render",
+      "table"
+    ],
+    "commonMistake": "Using innerHTML with untrusted user input can allow script injection in the page.",
+    "createdAt": "2026-09-24T09:00:00.000Z"
+  },
+  {
+    "id": "js-007",
+    "title": "Sum Cart Totals",
+    "language": "JavaScript",
+    "category": "Functions",
+    "difficulty": "Beginner",
+    "description": "Reduce a price list to one total value, starting from zero for a clean accumulator.",
+    "code": "const prices = [12.5, 8.75, 22];\nconst total = prices.reduce((sum, price) => sum + price, 0);\nconsole.log(total.toFixed(2)); // 43.25",
+    "tags": [
+      "reduce",
+      "totals",
+      "math",
+      "javascript"
+    ],
+    "commonMistake": "Omitting the initial value makes the first item behave like the accumulator and can produce the wrong result.",
+    "createdAt": "2026-09-27T09:00:00.000Z"
+  },
+  {
+    "id": "js-008",
+    "title": "Parse a Query String",
+    "language": "JavaScript",
+    "category": "Strings",
+    "difficulty": "Intermediate",
+    "description": "Turn a URL query string into a plain object so you can read values quickly.",
+    "code": "const query = 'page=2&sort=asc&tag=react';\nconst params = Object.fromEntries(\n  new URLSearchParams(query).entries()\n);\nconsole.log(params.tag); // react",
+    "tags": [
+      "url",
+      "query",
+      "objects",
+      "javascript",
+      "strings"
+    ],
+    "commonMistake": "Assuming query parameters are already decoded as a plain object without parsing them.",
+    "createdAt": "2026-09-30T09:00:00.000Z"
+  },
+  {
+    "id": "js-009",
+    "title": "Run Async Tasks in Parallel",
+    "language": "JavaScript",
+    "category": "Async",
+    "difficulty": "Intermediate",
+    "description": "Resolve several small async helpers together and continue only when each task finishes.",
+    "code": "const loadUser = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Ava' }), 120));\nconst loadOrders = () => new Promise((resolve) => setTimeout(() => resolve([1, 2]), 90));\nconst loadStock = () => new Promise((resolve) => setTimeout(() => resolve({ inStock: 12 }), 150));\nconst [user, orders, stock] = await Promise.all([\n  loadUser(),\n  loadOrders(),\n  loadStock(),\n]);\nconsole.log(user.name, orders.length, stock.inStock);",
+    "tags": [
+      "promise",
+      "parallel",
+      "async"
+    ],
+    "commonMistake": "Not handling a rejected promise means one failed task can break the whole batch.",
+    "createdAt": "2026-10-03T09:00:00.000Z"
+  },
+  {
+    "id": "js-010",
+    "title": "Toggle a Modal Panel",
+    "language": "JavaScript",
+    "category": "DOM",
+    "difficulty": "Beginner",
+    "description": "Show and hide a modal using a boolean state and a small class toggle on the element.",
+    "code": "const modal = document.getElementById('settingsModal');\nlet isOpen = false;\nfunction toggleModal() {\n  isOpen = !isOpen;\n  modal.classList.toggle('hidden', !isOpen);\n}\ntoggleModal();",
+    "tags": [
+      "modal",
+      "state",
+      "ui",
+      "javascript"
+    ],
+    "commonMistake": "Changing the hidden class without updating the state can make the UI look out of sync.",
+    "createdAt": "2026-10-07T09:00:00.000Z"
+  },
+  {
+    "id": "py-001",
+    "title": "Remove Duplicates from a List",
+    "language": "Python",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Use a first-seen-order approach to keep only the unique values while preserving their original order.",
+    "code": "values = [3, 1, 3, 2, 1]\nunique = list(dict.fromkeys(values))\nprint(unique)  # [3, 1, 2]",
+    "tags": [
+      "lists",
+      "order",
+      "dedupe",
+      "python"
+    ],
+    "commonMistake": "Using a set directly throws away the original order of first appearance.",
+    "createdAt": "2026-09-03T09:00:00.000Z"
+  },
+  {
+    "id": "py-002",
+    "title": "Title-Case a Name",
+    "language": "Python",
+    "category": "Strings",
+    "difficulty": "Beginner",
+    "description": "Clean up a user name by trimming whitespace and converting it to title case.",
+    "code": "name = '  ava smith  '\nclean_name = name.strip().title()\nprint(clean_name)  # Ava Smith",
+    "tags": [
+      "strings",
+      "formatting",
+      "name",
+      "python",
+      "reference"
+    ],
+    "commonMistake": "Calling title() before strip() leaves leading or trailing spaces in the output.",
+    "createdAt": "2026-09-06T09:00:00.000Z"
+  },
+  {
+    "id": "py-003",
+    "title": "Read a CSV File",
+    "language": "Python",
+    "category": "Files",
+    "difficulty": "Intermediate",
+    "description": "Load CSV data row by row and convert each line into a useful list of values.",
+    "code": "import csv\nwith open('students.csv', newline='') as file:\n    reader = csv.reader(file)\n    header = next(reader)\n    for row in reader:\n        print(dict(zip(header, row)))",
+    "tags": [
+      "csv",
+      "files",
+      "data"
+    ],
+    "commonMistake": "Forgetting newline='' can produce blank lines when reading CSV data on Windows.",
+    "createdAt": "2026-09-11T09:00:00.000Z"
+  },
+  {
+    "id": "py-004",
+    "title": "Filter Even Numbers",
+    "language": "Python",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Select only the entries that satisfy a simple condition from a list of integers.",
+    "code": "numbers = [4, 7, 8, 11, 16]\n\ndef is_even(number):\n    # Zero remainder means the value is divisible by two.\n    return number % 2 == 0\n\n# Keep values in their original order.\neven_numbers = [number for number in numbers if is_even(number)]\nprint(even_numbers)  # [4, 8, 16]\nassert all(number % 2 == 0 for number in even_numbers)",
+    "tags": [
+      "list-comprehension",
+      "numbers",
+      "filter",
+      "python"
+    ],
+    "commonMistake": "Using n / 2 == 0 does not test whether a number is even. Use n % 2 == 0 to check for a zero remainder.",
+    "createdAt": "2026-09-15T09:00:00.000Z"
+  },
+  {
+    "id": "py-005",
+    "title": "Write JSON to Disk",
+    "language": "Python",
+    "category": "Files",
+    "difficulty": "Intermediate",
+    "description": "Persist a dictionary as JSON so the data stays readable and can be reused later.",
+    "code": "import json\nfrom pathlib import Path\n\nsettings = {'theme': 'dark', 'font': 14}\noutput_path = Path('settings.json')\n\n# Write indented JSON directly to the file.\nwith output_path.open('w', encoding='utf-8') as file:\n    json.dump(settings, file, indent=2)\n\nsaved_settings = json.loads(output_path.read_text(encoding='utf-8'))\nprint(saved_settings['theme'])  # dark",
+    "tags": [
+      "json",
+      "persist",
+      "files",
+      "python",
+      "reference"
+    ],
+    "commonMistake": "json.dumps returns a JSON string but does not write it to the open file; use json.dump(value, file) for direct file output.",
+    "createdAt": "2026-09-18T09:00:00.000Z"
+  },
+  {
+    "id": "py-006",
+    "title": "Build a Student Record Class",
+    "language": "Python",
+    "category": "Classes",
+    "difficulty": "Advanced",
+    "description": "Model a student with a constructor and a method that returns a readable summary.",
+    "code": "class Student:\n    def __init__(self, name, grade):\n        self.name = name\n        self.grade = grade\n\n    def summary(self):\n        return f'{self.name}: {self.grade}'\n\nprint(Student('Ava', 'A').summary())",
+    "tags": [
+      "class",
+      "object",
+      "summary"
+    ],
+    "commonMistake": "Using mutable default arguments like [] makes each instance share the same state unless you initialize values inside __init__().",
+    "createdAt": "2026-09-23T09:00:00.000Z"
+  },
+  {
+    "id": "py-007",
+    "title": "Safely Read a Nested Value",
+    "language": "Python",
+    "category": "Functions",
+    "difficulty": "Intermediate",
+    "description": "Use a function that returns a default when a nested dictionary key does not exist.",
+    "code": "def get_user_city(user, default='Unknown'):\n    return user.get('profile', {}).get('city', default)\n\nprint(get_user_city({'profile': {'city': 'Paris'}}))",
+    "tags": [
+      "dictionary",
+      "fallback",
+      "nested",
+      "python"
+    ],
+    "commonMistake": "Calling user['profile']['city'] directly crashes if profile is missing.",
+    "createdAt": "2026-09-28T09:00:00.000Z"
+  },
+  {
+    "id": "py-008",
+    "title": "Count Words in a File",
+    "language": "Python",
+    "category": "Files",
+    "difficulty": "Advanced",
+    "description": "Open a text file and count the number of words while handling encoding correctly.",
+    "code": "from collections import Counter\nwith open('notes.txt', 'r', encoding='utf-8') as file:\n    words = file.read().split()\ncounts = Counter(words)\nprint(counts.most_common(3))",
+    "tags": [
+      "counting",
+      "text",
+      "counter",
+      "python",
+      "files"
+    ],
+    "commonMistake": "Using file.read() without splitting whitespace will count whole paragraphs instead of individual words.",
+    "createdAt": "2026-10-02T09:00:00.000Z"
+  },
+  {
+    "id": "py-009",
+    "title": "Merge Two Dictionaries",
+    "language": "Python",
+    "category": "Functions",
+    "difficulty": "Beginner",
+    "description": "Combine configuration values from two dictionaries without overwriting information unexpectedly.",
+    "code": "defaults = {'theme': 'light', 'font': 12}\ncustom = {'font': 14, 'lang': 'en'}\nconfig = {**defaults, **custom}\nprint(config)  # {'theme': 'light', 'font': 14, 'lang': 'en'}",
+    "tags": [
+      "dict",
+      "merge",
+      "config"
+    ],
+    "commonMistake": "Using defaults.update(custom) mutates the original dictionary in place, which can surprise later code that still expects the original values.",
+    "createdAt": "2026-10-08T09:00:00.000Z"
+  },
+  {
+    "id": "py-010",
+    "title": "List Files in a Directory",
+    "language": "Python",
+    "category": "Files",
+    "difficulty": "Advanced",
+    "description": "Scan a directory and print files that are ready to process with minimal extra logic.",
+    "code": "from pathlib import Path\nfor path in Path('data').iterdir():\n    if path.is_file():\n        print(path.name)\nprint('done')",
+    "tags": [
+      "pathlib",
+      "directory",
+      "files",
+      "python"
+    ],
+    "commonMistake": "Forgetting to check path.is_file() means folders are treated like files and can cause errors when you try to read them.",
+    "createdAt": "2026-10-11T09:00:00.000Z"
+  },
+  {
+    "id": "java-001",
+    "title": "Parse a CSV Line",
+    "language": "Java",
+    "category": "Strings",
+    "difficulty": "Beginner",
+    "description": "Split a comma-separated line into components and read each field safely.",
+    "code": "String row = \"name,grade,year\";\nString[] parts = row.split(\",\");\nfor (String part : parts) {\n    System.out.println(part);\n}",
+    "tags": [
+      "csv",
+      "split",
+      "strings",
+      "java"
+    ],
+    "commonMistake": "Using a single comma split on a line with quoted values can break the data into the wrong fields.",
+    "createdAt": "2026-09-05T09:00:00.000Z"
+  },
+  {
+    "id": "java-002",
+    "title": "Remove Duplicate Names",
+    "language": "Java",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Use a set to retain only unique names and drop repeated entries from a list.",
+    "code": "import java.util.ArrayList;\nimport java.util.LinkedHashSet;\nimport java.util.List;\nimport java.util.Set;\n\nclass UniqueNames {\n    public static void main(String[] args) {\n        List<String> names = new ArrayList<>(List.of(\"Ava\", \"Leo\", \"Ava\"));\n        Set<String> uniqueNames = new LinkedHashSet<>(names);\n        System.out.println(uniqueNames); // [Ava, Leo]\n    }\n}",
+    "tags": [
+      "set",
+      "collections",
+      "dedupe",
+      "java",
+      "reference"
+    ],
+    "commonMistake": "A HashSet removes duplicates but does not promise insertion-order iteration; use LinkedHashSet when the original order matters.",
+    "createdAt": "2026-09-09T09:00:00.000Z"
+  },
+  {
+    "id": "java-003",
+    "title": "Create a Student Record",
+    "language": "Java",
+    "category": "Classes",
+    "difficulty": "Intermediate",
+    "description": "Model a student with fields and a method that returns a description string.",
+    "code": "class Student {\n    private final String name;\n    private final int grade;\n\n    Student(String name, int grade) {\n        this.name = name;\n        this.grade = grade;\n    }\n\n    String summary() { return name + \": \" + grade; }\n}",
+    "tags": [
+      "class",
+      "data",
+      "record"
+    ],
+    "commonMistake": "Making fields mutable without a need creates state that is harder to reason about.",
+    "createdAt": "2026-09-14T09:00:00.000Z"
+  },
+  {
+    "id": "java-004",
+    "title": "Handle Missing Input",
+    "language": "Java",
+    "category": "Exceptions",
+    "difficulty": "Advanced",
+    "description": "Wrap parsing logic in a try-catch block so missing or invalid input does not crash the program.",
+    "code": "try {\n    int value = Integer.parseInt(\"abc\");\n    System.out.println(value);\n} catch (NumberFormatException ex) {\n    System.out.println(\"Invalid number\");\n}",
+    "tags": [
+      "exception",
+      "parse",
+      "input",
+      "java"
+    ],
+    "commonMistake": "Catching the generic Exception type hides the real cause and makes debugging harder.",
+    "createdAt": "2026-09-19T09:00:00.000Z"
+  },
+  {
+    "id": "java-005",
+    "title": "Sort Product Prices",
+    "language": "Java",
+    "category": "Collections",
+    "difficulty": "Beginner",
+    "description": "Arrange price values in ascending order so the cheapest item appears first.",
+    "code": "import java.util.ArrayList;\nimport java.util.Collections;\nimport java.util.List;\n\nclass SortPrices {\n    public static void main(String[] args) {\n        List<Integer> prices = new ArrayList<>(List.of(25, 9, 15));\n        List<Integer> sortedPrices = new ArrayList<>(prices);\n        Collections.sort(sortedPrices);\n        System.out.println(sortedPrices); // [9, 15, 25]\n        System.out.println(prices); // Original order is unchanged.\n    }\n}",
+    "tags": [
+      "sort",
+      "list",
+      "prices",
+      "java",
+      "collections"
+    ],
+    "commonMistake": "Collections.sort mutates the supplied list and returns void. Sort a copy when the original order must be preserved.",
+    "createdAt": "2026-09-24T09:00:00.000Z"
+  },
+  {
+    "id": "java-006",
+    "title": "Filter a List with Streams",
+    "language": "Java",
+    "category": "Collections",
+    "difficulty": "Intermediate",
+    "description": "Use Java streams to keep only the names that match a simple condition.",
+    "code": "List<String> names = List.of(\"Ava\", \"Leo\", \"Mia\");\nList<String> starters = names.stream()\n    .filter(name -> name.length() > 3)\n    .toList();\nSystem.out.println(starters);",
+    "tags": [
+      "streams",
+      "filter",
+      "collections"
+    ],
+    "commonMistake": "Forgetting the terminal operation means no filtering actually happens, because streams are lazy until they are collected.",
+    "createdAt": "2026-09-29T09:00:00.000Z"
+  },
+  {
+    "id": "java-007",
+    "title": "Format a Message with Dates",
+    "language": "Java",
+    "category": "Strings",
+    "difficulty": "Intermediate",
+    "description": "Create a readable message from a date object and a user's full name.",
+    "code": "LocalDate date = LocalDate.of(2026, 11, 5);\nString message = String.format(\"Hello %s, your session is on %s\", \"Ava\", date);\nSystem.out.println(message);",
+    "tags": [
+      "date",
+      "format",
+      "strings",
+      "java"
+    ],
+    "commonMistake": "Using the default toString output can produce a less user-friendly format than the one your app needs.",
+    "createdAt": "2026-10-04T09:00:00.000Z"
+  },
+  {
+    "id": "java-008",
+    "title": "Read a File with Try-With-Resources",
+    "language": "Java",
+    "category": "Exceptions",
+    "difficulty": "Advanced",
+    "description": "Open a file in a controlled block so the stream closes automatically after use.",
+    "code": "try (BufferedReader reader = Files.newBufferedReader(Path.of(\"notes.txt\"))) {\n    String line;\n    while ((line = reader.readLine()) != null) {\n        System.out.println(line);\n    }\n} catch (IOException ex) {\n    System.out.println(\"Read failed\");\n}",
+    "tags": [
+      "io",
+      "resources",
+      "file",
+      "java",
+      "exceptions"
+    ],
+    "commonMistake": "Leaving a file stream open can leak resources and make later reads fail unexpectedly.",
+    "createdAt": "2026-10-09T09:00:00.000Z"
+  },
+  {
+    "id": "java-009",
+    "title": "Build a Bank Account Class",
+    "language": "Java",
+    "category": "Classes",
+    "difficulty": "Advanced",
+    "description": "Define a class with fields and methods that model a simple balance update workflow.",
+    "code": "class BankAccount {\n    private double balance;\n\n    BankAccount(double balance) { this.balance = balance; }\n    void deposit(double amount) { balance += amount; }\n    double getBalance() { return balance; }\n}",
+    "tags": [
+      "class",
+      "balance",
+      "oop"
+    ],
+    "commonMistake": "Exposing mutable fields directly allows outside code to change the state without validation.",
+    "createdAt": "2026-10-14T09:00:00.000Z"
+  },
+  {
+    "id": "java-010",
+    "title": "Return an Optional Value",
+    "language": "Java",
+    "category": "Classes",
+    "difficulty": "Beginner",
+    "description": "Wrap a value in an Optional so callers can handle emptiness explicitly.",
+    "code": "Optional<String> name = Optional.ofNullable(null);\nString label = name.orElse(\"Guest\");\nSystem.out.println(label);",
+    "tags": [
+      "optional",
+      "null-safe",
+      "api",
+      "java"
+    ],
+    "commonMistake": "Calling Optional.get() without checking presence throws when it is empty; use orElse or another explicit empty-value path.",
+    "createdAt": "2026-10-18T09:00:00.000Z"
+  },
+  {
+    "id": "sql-001",
+    "title": "INNER JOIN Two Tables",
+    "language": "SQL",
+    "category": "SQL Queries",
+    "difficulty": "Intermediate",
+    "description": "Combine matching records from two tables using the shared key that connects them.",
+    "code": "SELECT s.student_id, s.name, c.course_name\nFROM students s\nINNER JOIN courses c\n  ON s.course_id = c.id;",
+    "tags": [
+      "join",
+      "relationships",
+      "query",
+      "sql"
+    ],
+    "commonMistake": "Using a cartesian product by forgetting the ON clause makes the result too large and hard to read.",
+    "createdAt": "2026-09-04T09:00:00.000Z"
+  },
+  {
+    "id": "sql-002",
+    "title": "Filter Active Customers",
+    "language": "SQL",
+    "category": "SQL Queries",
+    "difficulty": "Beginner",
+    "description": "Return only the rows that match the current status value in the customer table.",
+    "code": "-- Assumes is_active is stored as a 1/0 flag.\nSELECT customer_id,\n       customer_name,\n       is_active,\n       created_at\nFROM customers\nWHERE is_active = 1\nORDER BY created_at DESC;\n\n-- Confirm the column type and flag convention in your schema.",
+    "tags": [
+      "where",
+      "active",
+      "filter",
+      "sql",
+      "sql-queries"
+    ],
+    "commonMistake": "The equality predicate assumes the schema stores active status as 1. Confirm the column type and stored flag values before relying on it.",
+    "createdAt": "2026-09-10T09:00:00.000Z"
+  },
+  {
+    "id": "sql-003",
+    "title": "Count Orders by Status",
+    "language": "SQL",
+    "category": "Aggregation",
+    "difficulty": "Intermediate",
+    "description": "Group rows by their order status and count how many transactions fall into each bucket.",
+    "code": "SELECT status, COUNT(*) AS order_count\nFROM orders\nGROUP BY status\nORDER BY order_count DESC;",
+    "tags": [
+      "count",
+      "group-by",
+      "status"
+    ],
+    "commonMistake": "Putting the aggregate in the WHERE clause means the database never reaches the grouping step.",
+    "createdAt": "2026-09-16T09:00:00.000Z"
+  },
+  {
+    "id": "sql-004",
+    "title": "Update Stock Quantities",
+    "language": "SQL",
+    "category": "Data Changes",
+    "difficulty": "Advanced",
+    "description": "Adjust the stock count for a single product while keeping the change limited to the intended row.",
+    "code": "UPDATE inventory\nSET quantity = quantity - 5\nWHERE product_id = 42\n  AND quantity >= 5;",
+    "tags": [
+      "update",
+      "inventory",
+      "stock",
+      "sql"
+    ],
+    "commonMistake": "Running the update without a WHERE clause changes every product in the table.",
+    "createdAt": "2026-09-20T09:00:00.000Z"
+  },
+  {
+    "id": "sql-005",
+    "title": "Find Top-Selling Products",
+    "language": "SQL",
+    "category": "Aggregation",
+    "difficulty": "Advanced",
+    "description": "Count the total units sold for each product and return only the best-performing rows.",
+    "code": "SELECT product_id, SUM(quantity) AS units_sold\nFROM order_items\nGROUP BY product_id\nORDER BY units_sold DESC\nLIMIT 5;",
+    "tags": [
+      "top",
+      "sum",
+      "group-by",
+      "sql",
+      "aggregation"
+    ],
+    "commonMistake": "Without GROUP BY product_id, the aggregate collapses everything into one row instead of showing each product separately.",
+    "createdAt": "2026-09-25T09:00:00.000Z"
+  },
+  {
+    "id": "sql-006",
+    "title": "LEFT JOIN Missing Records",
+    "language": "SQL",
+    "category": "SQL Queries",
+    "difficulty": "Beginner",
+    "description": "Keep all rows from the left table even when there is no matching record on the right side.",
+    "code": "SELECT c.name, o.order_id\nFROM customers c\nLEFT JOIN orders o\n  ON c.id = o.customer_id;",
+    "tags": [
+      "left-join",
+      "missing-data",
+      "query"
+    ],
+    "commonMistake": "Using INNER JOIN removes customers with no orders and hides inactive or new accounts.",
+    "createdAt": "2026-10-01T09:00:00.000Z"
+  },
+  {
+    "id": "sql-007",
+    "title": "Filter a Date Range",
+    "language": "SQL",
+    "category": "SQL Queries",
+    "difficulty": "Beginner",
+    "description": "Restrict results to records created between two dates, while being aware that timestamp values can include time-of-day data on the last day.",
+    "code": "SELECT *\nFROM sessions\nWHERE created_at BETWEEN '2026-09-01' AND '2026-09-30';",
+    "tags": [
+      "date",
+      "between",
+      "range",
+      "sql"
+    ],
+    "commonMistake": "BETWEEN is inclusive at both ends, but timestamp values can still exclude the later part of the last day if the column stores time-of-day details.",
+    "createdAt": "2026-10-06T09:00:00.000Z"
+  },
+  {
+    "id": "sql-008",
+    "title": "Insert a New Student",
+    "language": "SQL",
+    "category": "Data Changes",
+    "difficulty": "Beginner",
+    "description": "Add a new student record with all required values in a single insert statement.",
+    "code": "INSERT INTO students (name, email, course_id)\nVALUES ('Mila', 'mila@example.com', 7);",
+    "tags": [
+      "insert",
+      "students",
+      "records",
+      "sql",
+      "data-changes"
+    ],
+    "commonMistake": "Forgetting a column list can break when the table adds a new field later.",
+    "createdAt": "2026-10-12T09:00:00.000Z"
+  },
+  {
+    "id": "sql-009",
+    "title": "Group Students by Department",
+    "language": "SQL",
+    "category": "Aggregation",
+    "difficulty": "Intermediate",
+    "description": "Summarize the number of students attached to each department in the university dataset.",
+    "code": "SELECT department_id, COUNT(*) AS student_count\nFROM students\nGROUP BY department_id;",
+    "tags": [
+      "group-by",
+      "department",
+      "summary"
+    ],
+    "commonMistake": "Without GROUP BY department_id, COUNT(*) collapses every department into a single aggregate row.",
+    "createdAt": "2026-10-17T09:00:00.000Z"
+  },
+  {
+    "id": "sql-010",
+    "title": "Delete Old Audit Logs",
+    "language": "SQL",
+    "category": "Data Changes",
+    "difficulty": "Advanced",
+    "description": "Preview and remove SQL Server audit rows older than a defined retention cutoff using T-SQL date functions.",
+    "code": "-- SQL Server syntax: DATEADD and GETDATE are T-SQL functions.\nDECLARE @cutoff date = DATEADD(day, -365, CAST(GETDATE() AS date));\n\n-- Preview the rows before deleting them.\nSELECT audit_id, created_at, action\nFROM audit_logs\nWHERE created_at < @cutoff;\n\n-- Delete only rows older than the retention cutoff.\nDELETE FROM audit_logs\nWHERE created_at < @cutoff;",
+    "tags": [
+      "delete",
+      "audit",
+      "cleanup",
+      "sql"
+    ],
+    "commonMistake": "This T-SQL statement is scoped to rows older than the cutoff, but preview the same predicate first and verify the retention period and time zone.",
+    "createdAt": "2026-10-22T09:00:00.000Z"
+  },
+  {
+    "id": "html-001",
+    "title": "Center a Div with Flexbox",
+    "language": "HTML/CSS",
+    "category": "Layout",
+    "difficulty": "Beginner",
+    "description": "Use a flex container to place a card neatly in the middle of the page.",
+    "code": ".container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n}",
+    "tags": [
+      "flexbox",
+      "layout",
+      "center",
+      "html-css"
+    ],
+    "commonMistake": "Setting justify-content without display: flex will not affect the child alignment at all.",
+    "createdAt": "2026-09-07T09:00:00.000Z"
+  },
+  {
+    "id": "html-002",
+    "title": "Build a Search Form",
+    "language": "HTML/CSS",
+    "category": "Forms",
+    "difficulty": "Beginner",
+    "description": "Create an input and submit button pattern that gives users a clear place to search.",
+    "code": "<form class=\"search\">\n  <label for=\"query\">Search</label>\n  <input id=\"query\" type=\"search\" />\n  <button type=\"submit\">Go</button>\n</form>",
+    "tags": [
+      "form",
+      "search",
+      "input",
+      "html-css",
+      "forms"
+    ],
+    "commonMistake": "Leaving the button without a type can submit the form unexpectedly in some browsers.",
+    "createdAt": "2026-09-13T09:00:00.000Z"
+  },
+  {
+    "id": "html-003",
+    "title": "Style a Callout Card",
+    "language": "HTML/CSS",
+    "category": "Strings",
+    "difficulty": "Intermediate",
+    "description": "Give a note block a readable appearance with a soft background and strong border contrast.",
+    "code": ".callout {\n  background: #f4f9ff;\n  border-left: 4px solid #2f4bc7;\n  padding: 1rem;\n  border-radius: 12px;\n}",
+    "tags": [
+      "card",
+      "typography",
+      "contrast"
+    ],
+    "commonMistake": "Relying on color alone makes the message hard to read for users with low vision.",
+    "createdAt": "2026-09-17T09:00:00.000Z"
+  },
+  {
+    "id": "html-004",
+    "title": "Create a Responsive Card Grid",
+    "language": "HTML/CSS",
+    "category": "Layout",
+    "difficulty": "Advanced",
+    "description": "Use media queries to reshape a card grid for smaller screens without losing the content structure.",
+    "code": ".grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));\n  gap: 1rem;\n}\n@media (max-width: 600px) { .grid { gap: 0.75rem; } }",
+    "tags": [
+      "grid",
+      "media-query",
+      "responsive",
+      "html-css"
+    ],
+    "commonMistake": "Setting rigid widths on each column can force overflow on tablets or narrow phones.",
+    "createdAt": "2026-09-22T09:00:00.000Z"
+  },
+  {
+    "id": "html-005",
+    "title": "Build a Navigation Bar",
+    "language": "HTML/CSS",
+    "category": "Layout",
+    "difficulty": "Intermediate",
+    "description": "Create a semantic navigation menu with a clear active link and accessible labels for the main site sections.",
+    "code": "/* Keep navigation links aligned and spaced consistently. */\n.nav-list {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n  padding: 0.75rem 1rem;\n  margin: 0;\n  list-style: none;\n}\n.nav-list a { text-decoration: none; }\n.nav-list a[aria-current=\"page\"] { font-weight: 700; }",
+    "tags": [
+      "nav",
+      "markup",
+      "accessibility",
+      "html-css",
+      "layout"
+    ],
+    "commonMistake": "Forgetting the semantic nav landmark or accessible labels makes the menu harder for screen readers to announce clearly.",
+    "createdAt": "2026-09-26T09:00:00.000Z"
+  },
+  {
+    "id": "html-006",
+    "title": "Create a Button Group",
+    "language": "HTML/CSS",
+    "category": "Forms",
+    "difficulty": "Intermediate",
+    "description": "Group related actions together in one HTML pattern so users can spot the controls as a single set.",
+    "code": "<div class=\"button-group\" aria-label=\"Actions\">\n  <button type=\"button\">Save</button>\n  <button type=\"button\">Cancel</button>\n</div>",
+    "tags": [
+      "buttons",
+      "layout",
+      "markup"
+    ],
+    "commonMistake": "Using separate buttons without a shared wrapper makes the actions feel disconnected and harder to scan.",
+    "createdAt": "2026-10-01T09:00:00.000Z"
+  },
+  {
+    "id": "html-007",
+    "title": "Add Large Heading Styles",
+    "language": "HTML/CSS",
+    "category": "Strings",
+    "difficulty": "Intermediate",
+    "description": "Set a clear visual hierarchy so the page title stands out and remains readable on mobile screens.",
+    "code": "h1 {\n  font-size: clamp(2rem, 5vw, 3rem);\n  line-height: 1.1;\n  margin-bottom: 0.5rem;\n}",
+    "tags": [
+      "typography",
+      "heading",
+      "scale",
+      "html-css"
+    ],
+    "commonMistake": "Using a fixed pixel size for headings can make the text too large on small devices.",
+    "createdAt": "2026-10-05T09:00:00.000Z"
+  },
+  {
+    "id": "html-008",
+    "title": "Collapse a Mobile Menu",
+    "language": "HTML/CSS",
+    "category": "Layout",
+    "difficulty": "Advanced",
+    "description": "Hide the menu on smaller screens and reveal it only when the user chooses the toggle.",
+    "code": "<button class=\"menu-toggle\" aria-expanded=\"false\" aria-controls=\"nav-menu\">Menu</button>\n<nav id=\"nav-menu\" class=\"nav\" aria-label=\"Mobile navigation\">\n  <a href=\"#home\">Home</a>\n  <a href=\"#topics\">Topics</a>\n  <a href=\"#search\">Search</a>\n</nav>\n@media (max-width: 700px) {\n  .nav { display: none; }\n  /* A toggle handler must also reveal the menu. */\n  .menu-toggle { display: inline-block; }\n}",
+    "tags": [
+      "mobile",
+      "toggle",
+      "navigation",
+      "html-css",
+      "layout"
+    ],
+    "commonMistake": "Hiding the navigation without a clear toggle or focus path leaves smaller-screen users unable to reach the menu.",
+    "createdAt": "2026-10-10T09:00:00.000Z"
+  },
+  {
+    "id": "html-009",
+    "title": "Create a Validation Message",
+    "language": "HTML/CSS",
+    "category": "Forms",
+    "difficulty": "Advanced",
+    "description": "Show a field error with a clear visual style so the user knows what to fix next.",
+    "code": ".error {\n  color: #b42318;\n  font-weight: 600;\n  border-left: 3px solid #d92d20;\n  padding-left: 0.5rem;\n}",
+    "tags": [
+      "validation",
+      "error",
+      "feedback"
+    ],
+    "commonMistake": "Using only a red border without text makes the message hard to understand for assistive technology.",
+    "createdAt": "2026-10-15T09:00:00.000Z"
+  },
+  {
+    "id": "html-010",
+    "title": "Add Hover States for Links",
+    "language": "HTML/CSS",
+    "category": "Strings",
+    "difficulty": "Beginner",
+    "description": "Use a simple state change to make links more obvious without changing the page structure.",
+    "code": "<a href=\"#\">Course notes</a>\n<a href=\"#\">Practice quiz</a>\n<style>\n  a { color: #2f4bc7; text-decoration: none; }\n  a:hover { text-decoration: underline; color: #1e2a7a; }\n</style>",
+    "tags": [
+      "links",
+      "hover",
+      "ui",
+      "html-css"
+    ],
+    "commonMistake": "Only styling the default link state leaves keyboard and hover users without a clear visual cue when they interact.",
+    "createdAt": "2026-10-20T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-001",
+    "title": "Range-based For Loop",
+    "language": "C++",
+    "category": "Iteration",
+    "difficulty": "Beginner",
+    "description": "Iterate over a list of values with a modern loop while keeping the code short and readable.",
+    "code": "#include <iostream>\n#include <vector>\n\nint main() {\n  std::vector<int> scores = {10, 20, 30};\n  int total = 0;\n  // Use const when the loop should not modify elements.\n  for (const int score : scores) {\n    total += score;\n    std::cout << score << '\\n';\n  }\n  std::cout << \"Total: \" << total << '\\n';\n  return 0;\n}",
+    "tags": [
+      "loop",
+      "range",
+      "vector",
+      "cpp"
+    ],
+    "commonMistake": "Forgetting the reference sign means the loop variable is a copy, so updates do not change the original vector element.",
+    "createdAt": "2026-09-09T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-002",
+    "title": "Reverse a Vector",
+    "language": "C++",
+    "category": "Iteration",
+    "difficulty": "Intermediate",
+    "description": "Invert the order of a vector so the first element becomes the last and vice versa.",
+    "code": "std::vector<int> values = {1, 2, 3, 4};\nstd::reverse(values.begin(), values.end());\nfor (int value : values) {\n  std::cout << value << ' ';\n}",
+    "tags": [
+      "vector",
+      "reverse",
+      "algorithm",
+      "cpp",
+      "iteration"
+    ],
+    "commonMistake": "Calling reverse without including the <algorithm> header will fail at compile time.",
+    "createdAt": "2026-09-14T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-003",
+    "title": "Pass by Reference",
+    "language": "C++",
+    "category": "Functions",
+    "difficulty": "Beginner",
+    "description": "Update a value in a function without copying the whole object into a new variable.",
+    "code": "void addBonus(int& points) {\n  points += 5;\n}\nint score = 10;\naddBonus(score);\nstd::cout << score;",
+    "tags": [
+      "reference",
+      "function",
+      "modifier"
+    ],
+    "commonMistake": "Using pass-by-value makes the update invisible outside the function scope.",
+    "createdAt": "2026-09-20T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-004",
+    "title": "Own an Object with std::unique_ptr",
+    "language": "C++",
+    "category": "Fundamentals",
+    "difficulty": "Intermediate",
+    "description": "Take ownership of a heap object so it is cleaned up automatically when it goes out of scope.",
+    "code": "#include <iostream>\n#include <memory>\n#include <string>\n\nint main() {\n  auto name = std::make_unique<std::string>(\"Ava\");\n  // unique_ptr releases its object automatically.\n  std::cout << *name << '\\n';\n  name.reset();\n  std::cout << std::boolalpha << (name == nullptr) << '\\n';\n  return 0;\n}",
+    "tags": [
+      "memory",
+      "unique-ptr",
+      "ownership",
+      "cpp"
+    ],
+    "commonMistake": "Releasing or copying the same raw pointer twice can leave the object dangling and unpredictable.",
+    "createdAt": "2026-09-27T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-005",
+    "title": "Sum Array Values",
+    "language": "C++",
+    "category": "Fundamentals",
+    "difficulty": "Beginner",
+    "description": "Walk through a fixed array and calculate the total of every number in it.",
+    "code": "int values[] = {2, 4, 6, 8};\nint total = 0;\nfor (int i = 0; i < 4; ++i) {\n  total += values[i];\n}\nstd::cout << total;",
+    "tags": [
+      "array",
+      "sum",
+      "loop",
+      "cpp",
+      "fundamentals"
+    ],
+    "commonMistake": "Using the wrong loop bound can read past the end of the array and corrupt memory.",
+    "createdAt": "2026-10-04T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-006",
+    "title": "Resize a Dynamic Vector",
+    "language": "C++",
+    "category": "Iteration",
+    "difficulty": "Intermediate",
+    "description": "Increase the capacity of a vector when more elements need to be added to the collection.",
+    "code": "std::vector<int> marks;\nmarks.push_back(82);\nmarks.push_back(91);\nmarks.resize(4, 0);\nstd::cout << marks.size();",
+    "tags": [
+      "vector",
+      "resize",
+      "capacity"
+    ],
+    "commonMistake": "Calling reserve() changes capacity but not size, so indexing before you resize or push values can still leave you out of bounds.",
+    "createdAt": "2026-10-09T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-007",
+    "title": "Sort Names Alphabetically",
+    "language": "C++",
+    "category": "Functions",
+    "difficulty": "Intermediate",
+    "description": "Order a collection of names with a standard sort and keep the comparison logic straightforward.",
+    "code": "#include <algorithm>\n#include <string>\n#include <vector>\nstd::vector<std::string> names = {\"Lia\", \"Ava\", \"Noah\"};\nstd::sort(names.begin(), names.end());\nfor (const auto& name : names) {\n  std::cout << name << ' ';\n}",
+    "tags": [
+      "sort",
+      "strings",
+      "vector",
+      "cpp"
+    ],
+    "commonMistake": "Forgetting #include <algorithm> means std::sort is not declared and the program will fail to compile.",
+    "createdAt": "2026-10-13T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-008",
+    "title": "Handle a Null Pointer",
+    "language": "C++",
+    "category": "Fundamentals",
+    "difficulty": "Intermediate",
+    "description": "Check whether a pointer is empty before reading or writing to the target memory.",
+    "code": "int* score = nullptr;\nif (score == nullptr) {\n  std::cout << \"No score\";\n} else {\n  std::cout << *score;\n}\n",
+    "tags": [
+      "pointer",
+      "guard",
+      "null",
+      "cpp",
+      "fundamentals"
+    ],
+    "commonMistake": "Using score without checking means a dangling or null pointer can crash the application.",
+    "createdAt": "2026-10-18T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-009",
+    "title": "Read a File Line by Line",
+    "language": "C++",
+    "category": "Fundamentals",
+    "difficulty": "Intermediate",
+    "description": "Open a text file and process each line individually to avoid loading the whole file at once.",
+    "code": "std::ifstream file(\"notes.txt\");\nstd::string line;\nwhile (std::getline(file, line)) {\n  std::cout << line << '\\n';\n}",
+    "tags": [
+      "file",
+      "stream",
+      "text"
+    ],
+    "commonMistake": "Ignoring the file-open check can leave the stream in a bad state and make the loop skip all data.",
+    "createdAt": "2026-10-23T09:00:00.000Z"
+  },
+  {
+    "id": "cpp-010",
+    "title": "Use a Default Argument",
+    "language": "C++",
+    "category": "Functions",
+    "difficulty": "Beginner",
+    "description": "Give a function parameter a default value so callers can omit it when they want the standard behavior.",
+    "code": "void greet(std::string name = \"friend\") {\n  std::cout << \"Hello, \" << name;\n}\ngreet();\ngreet(\"Ava\");",
+    "tags": [
+      "default-parameter",
+      "function",
+      "call",
+      "cpp"
+    ],
+    "commonMistake": "Placing a default argument in the middle of a parameter list can make the function call ambiguous.",
+    "createdAt": "2026-10-28T09:00:00.000Z"
+  }
+]

@@ -1,0 +1,842 @@
+[
+  {
+    "id": "javascript-01",
+    "language": "JavaScript",
+    "question": "What does Array.filter() return?",
+    "options": [
+      "A new array containing the values that pass the test",
+      "The first matching value",
+      "A count of matching values",
+      "The original array with other values removed"
+    ],
+    "explanation": "filter() builds a new array from values whose callback returns true.",
+    "difficulty": "Beginner",
+    "answer": "A new array containing the values that pass the test"
+  },
+  {
+    "id": "javascript-02",
+    "language": "JavaScript",
+    "question": "Which operator falls back only when the left value is null or undefined?",
+    "options": [
+      "||",
+      "??",
+      "&&",
+      "?."
+    ],
+    "explanation": "The nullish coalescing operator uses the fallback only for null or undefined.",
+    "difficulty": "Beginner",
+    "answer": "??"
+  },
+  {
+    "id": "javascript-03",
+    "language": "JavaScript",
+    "question": "Which built-in collection is suitable for removing duplicates while keeping insertion order?",
+    "options": [
+      "ArrayBuffer",
+      "WeakMap",
+      "Set",
+      "WeakSet"
+    ],
+    "explanation": "A Set stores unique values and iterates in insertion order.",
+    "difficulty": "Intermediate",
+    "answer": "Set"
+  },
+  {
+    "id": "javascript-04",
+    "language": "JavaScript",
+    "question": "A search runs on every keystroke. Which technique waits until typing pauses before running it?",
+    "options": [
+      "Event delegation",
+      "Memoization",
+      "Destructuring",
+      "Debouncing"
+    ],
+    "explanation": "Debouncing delays work until a quiet interval has elapsed.",
+    "difficulty": "Intermediate",
+    "answer": "Debouncing"
+  },
+  {
+    "id": "javascript-05",
+    "language": "JavaScript",
+    "question": "When do all promises passed to Promise.all() fulfill?",
+    "options": [
+      "When every promise fulfills",
+      "When the first promise fulfills",
+      "After the callback is called once",
+      "Only after a timeout expires"
+    ],
+    "explanation": "Promise.all fulfills with all results after every input promise fulfills; it rejects if one rejects.",
+    "difficulty": "Beginner",
+    "answer": "When every promise fulfills"
+  },
+  {
+    "id": "javascript-06",
+    "language": "JavaScript",
+    "question": "What does this code print?\n\nconst user = { profile: null };\nconsole.log(user?.profile?.name ?? \"Guest\");",
+    "options": [
+      "null",
+      "Guest",
+      "undefined",
+      "It throws a TypeError"
+    ],
+    "explanation": "Optional chaining stops at the null profile, then ?? supplies the Guest fallback.",
+    "difficulty": "Advanced",
+    "answer": "Guest"
+  },
+  {
+    "id": "javascript-07",
+    "language": "JavaScript",
+    "question": "What does this code print?\n\nconst values = [2, 3, 4];\nconsole.log(values.reduce((sum, value) => sum + value, 0));",
+    "options": [
+      "7",
+      "24",
+      "9",
+      "0"
+    ],
+    "explanation": "reduce() starts with 0 and adds each array value.",
+    "difficulty": "Advanced",
+    "answer": "9"
+  },
+  {
+    "id": "javascript-08",
+    "language": "JavaScript",
+    "question": "Which built-in parses a query string into named parameters?",
+    "options": [
+      "FormData",
+      "URL",
+      "JSON.parse",
+      "URLSearchParams"
+    ],
+    "explanation": "URLSearchParams provides methods such as get() for query parameters.",
+    "difficulty": "Intermediate",
+    "answer": "URLSearchParams"
+  },
+  {
+    "id": "javascript-09",
+    "language": "JavaScript",
+    "question": "What is wrong with this code?\n\nconst average = values.reduce((sum, value) => sum + value) / values.length;",
+    "options": [
+      "An empty values array makes the result NaN because the length is zero",
+      "reduce() always returns a string",
+      "Division by length sorts the values",
+      "The callback skips the final value"
+    ],
+    "explanation": "For an empty array, reduce() without an initial value throws; for a non-empty array, a zero length cannot occur.",
+    "difficulty": "Advanced",
+    "answer": "An empty values array makes the result NaN because the length is zero"
+  },
+  {
+    "id": "javascript-10",
+    "language": "JavaScript",
+    "question": "Which expression creates a Set from an array named values?",
+    "options": [
+      "Set.from(values)",
+      "new Set(values)",
+      "values.toSet()",
+      "ArraySet(values)"
+    ],
+    "explanation": "The Set constructor accepts an iterable such as an array.",
+    "difficulty": "Beginner",
+    "answer": "new Set(values)"
+  },
+  {
+    "id": "python-01",
+    "language": "Python",
+    "question": "Which keyword begins a function definition in Python?",
+    "options": [
+      "function",
+      "func",
+      "def",
+      "method"
+    ],
+    "explanation": "Python function definitions begin with def.",
+    "difficulty": "Beginner",
+    "answer": "def"
+  },
+  {
+    "id": "python-02",
+    "language": "Python",
+    "question": "What does dict.get(key, fallback) return when key is absent?",
+    "options": [
+      "An empty dictionary in every case",
+      "The key string",
+      "A KeyError",
+      "The fallback value"
+    ],
+    "explanation": "get() returns its default argument when the key is not present.",
+    "difficulty": "Beginner",
+    "answer": "The fallback value"
+  },
+  {
+    "id": "python-03",
+    "language": "Python",
+    "question": "What does this code print?\n\nfunctions = [lambda: number for number in range(3)]\nprint([function() for function in functions])",
+    "options": [
+      "[2, 2, 2]",
+      "[0, 1, 2]",
+      "[0, 0, 0]",
+      "A NameError because number is out of scope"
+    ],
+    "explanation": "Each lambda closes over the same loop variable, which has value 2 when the functions are called.",
+    "difficulty": "Advanced",
+    "answer": "[2, 2, 2]"
+  },
+  {
+    "id": "python-04",
+    "language": "Python",
+    "question": "Which standard-library module provides CSV readers and writers?",
+    "options": [
+      "json",
+      "csv",
+      "pathlib",
+      "collections"
+    ],
+    "explanation": "The csv module handles delimited rows and quoting rules.",
+    "difficulty": "Intermediate",
+    "answer": "csv"
+  },
+  {
+    "id": "python-05",
+    "language": "Python",
+    "question": "Which function writes a Python object as JSON to an open file object?",
+    "options": [
+      "json.read(value)",
+      "json.load(value, file)",
+      "json.dump(value, file)",
+      "json.parse(file, value)"
+    ],
+    "explanation": "json.dump serializes an object directly into a file-like object.",
+    "difficulty": "Intermediate",
+    "answer": "json.dump(value, file)"
+  },
+  {
+    "id": "python-06",
+    "language": "Python",
+    "question": "What does the string method title() do?",
+    "options": [
+      "Sorts words alphabetically",
+      "Converts every character to uppercase",
+      "Removes whitespace from both ends",
+      "Capitalizes the first cased character of each word"
+    ],
+    "explanation": "title() returns a title-cased copy of the string.",
+    "difficulty": "Beginner",
+    "answer": "Capitalizes the first cased character of each word"
+  },
+  {
+    "id": "python-07",
+    "language": "Python",
+    "question": "What does this code print?\n\nvalues = [3, 1, 3, 2]\nseen = set()\nunique = [v for v in values if not (v in seen or seen.add(v))]\nprint(unique)",
+    "options": [
+      "[3, 1, 2]",
+      "[1, 2, 3]",
+      "[3, 1, 3, 2]",
+      "[2, 1, 3]"
+    ],
+    "explanation": "The seen set suppresses repeats while the comprehension preserves first-seen order.",
+    "difficulty": "Advanced",
+    "answer": "[3, 1, 2]"
+  },
+  {
+    "id": "python-08",
+    "language": "Python",
+    "question": "Which expression safely reads city from a possibly missing profile dictionary?",
+    "options": [
+      "user[\"profile\"][\"city\"]",
+      "user.get(\"profile\", {}).get(\"city\", \"Unknown\")",
+      "user.profile.city",
+      "user.get(\"profile\").city"
+    ],
+    "explanation": "Each get() supplies a fallback mapping or value when a key is absent.",
+    "difficulty": "Intermediate",
+    "answer": "user.get(\"profile\", {}).get(\"city\", \"Unknown\")"
+  },
+  {
+    "id": "python-09",
+    "language": "Python",
+    "question": "What does this code print?\n\nfrom collections import Counter\ncounts = Counter([\"pear\", \"fig\", \"pear\", \"plum\"])\nprint(counts.most_common(1)[0][0])",
+    "options": [
+      "plum",
+      "fig",
+      "pear",
+      "pear fig plum"
+    ],
+    "explanation": "pear occurs twice, more often than either other value.",
+    "difficulty": "Advanced",
+    "answer": "pear"
+  },
+  {
+    "id": "python-10",
+    "language": "Python",
+    "question": "Which pathlib class represents filesystem paths and can iterate over a directory?",
+    "options": [
+      "Directory",
+      "PurePath only",
+      "File",
+      "Path"
+    ],
+    "explanation": "pathlib.Path represents concrete paths and provides methods such as iterdir().",
+    "difficulty": "Beginner",
+    "answer": "Path"
+  },
+  {
+    "id": "java-01",
+    "language": "Java",
+    "question": "Which Java primitive type stores a whole-number value?",
+    "options": [
+      "int",
+      "boolean",
+      "char",
+      "double"
+    ],
+    "explanation": "int is Java?s primitive integer type.",
+    "difficulty": "Beginner",
+    "answer": "int"
+  },
+  {
+    "id": "java-02",
+    "language": "Java",
+    "question": "Which Java method parses a numeric String into a primitive int?",
+    "options": [
+      "String.valueOf(text)",
+      "Integer.parseInt(text)",
+      "Math.toInt(text)",
+      "Integer.valueOf(text).intValueOf()"
+    ],
+    "explanation": "Integer.parseInt returns a primitive int and throws NumberFormatException for invalid input.",
+    "difficulty": "Intermediate",
+    "answer": "Integer.parseInt(text)"
+  },
+  {
+    "id": "java-03",
+    "language": "Java",
+    "question": "What does LinkedHashSet provide compared with a regular HashSet?",
+    "options": [
+      "Thread safety and sorted keys",
+      "Automatic sorting and duplicate values",
+      "Unique elements with predictable insertion order",
+      "Index-based access in insertion order"
+    ],
+    "explanation": "LinkedHashSet combines uniqueness with insertion-order iteration.",
+    "difficulty": "Beginner",
+    "answer": "Unique elements with predictable insertion order"
+  },
+  {
+    "id": "java-04",
+    "language": "Java",
+    "question": "What happens when this code runs?\n\nint count = Integer.parseInt(\"12x\");\nSystem.out.println(count);",
+    "options": [
+      "It throws NullPointerException",
+      "It prints 12",
+      "It prints 0",
+      "It throws NumberFormatException before printing"
+    ],
+    "explanation": "The string contains a non-numeric character, so parseInt throws NumberFormatException.",
+    "difficulty": "Advanced",
+    "answer": "It throws NumberFormatException before printing"
+  },
+  {
+    "id": "java-05",
+    "language": "Java",
+    "question": "Which utility method sorts a mutable List in place?",
+    "options": [
+      "Collections.sort(list)",
+      "Collections.sorted(list)",
+      "List.sortInPlace(list)",
+      "Arrays.sort(list) for every List"
+    ],
+    "explanation": "Collections.sort sorts the supplied list; List.sort is another in-place option.",
+    "difficulty": "Intermediate",
+    "answer": "Collections.sort(list)"
+  },
+  {
+    "id": "java-06",
+    "language": "Java",
+    "question": "What does this code print?\n\nList<Integer> values = List.of(2, 5, 8);\nlong count = values.stream().filter(n -> n > 4).count();\nSystem.out.println(count);",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "It does not compile because filter counts values"
+    ],
+    "explanation": "The values 5 and 8 match the filter, so count() returns 2.",
+    "difficulty": "Advanced",
+    "answer": "2"
+  },
+  {
+    "id": "java-07",
+    "language": "Java",
+    "question": "Which class is commonly used to buffer character input from a text file?",
+    "options": [
+      "HashMap",
+      "ArrayList",
+      "BufferedReader",
+      "StringBuilder"
+    ],
+    "explanation": "BufferedReader reads characters efficiently and provides readLine().",
+    "difficulty": "Beginner",
+    "answer": "BufferedReader"
+  },
+  {
+    "id": "java-08",
+    "language": "Java",
+    "question": "What does Optional.orElse(\"Guest\") return when the Optional is empty?",
+    "options": [
+      "A NoSuchElementException",
+      "null in every case",
+      "An empty Optional",
+      "The supplied fallback string"
+    ],
+    "explanation": "orElse returns the contained value or the provided fallback.",
+    "difficulty": "Intermediate",
+    "answer": "The supplied fallback string"
+  },
+  {
+    "id": "java-09",
+    "language": "Java",
+    "question": "What does this code do when the stream is collected?\n\nList<String> words = List.of(\"ant\", \"ape\", \"bee\");\nMap<Character, String> byInitial = words.stream()\n    .collect(Collectors.toMap(word -> word.charAt(0), word -> word));\nSystem.out.println(byInitial.size());",
+    "options": [
+      "It throws IllegalStateException because key 'a' occurs twice and no merge function is supplied",
+      "It prints 2 because duplicate initials overwrite earlier values",
+      "It prints 3 because every word is kept",
+      "It fails to compile because toMap cannot use a character key"
+    ],
+    "explanation": "Collectors.toMap without a merge function rejects duplicate keys, so collection fails before the print statement.",
+    "difficulty": "Advanced",
+    "answer": "It throws IllegalStateException because key 'a' occurs twice and no merge function is supplied"
+  },
+  {
+    "id": "java-10",
+    "language": "Java",
+    "question": "Which object-oriented principle hides internal state and exposes controlled operations?",
+    "options": [
+      "Inheritance",
+      "Encapsulation",
+      "Overloading",
+      "Casting"
+    ],
+    "explanation": "Encapsulation groups state with behavior and controls access to the state.",
+    "difficulty": "Beginner",
+    "answer": "Encapsulation"
+  },
+  {
+    "id": "sql-01",
+    "language": "SQL",
+    "question": "Which clause filters input rows before GROUP BY aggregation?",
+    "options": [
+      "ORDER BY",
+      "HAVING",
+      "WHERE",
+      "DISTINCT"
+    ],
+    "explanation": "WHERE filters source rows before grouping; HAVING filters groups after aggregation.",
+    "difficulty": "Intermediate",
+    "answer": "WHERE"
+  },
+  {
+    "id": "sql-02",
+    "language": "SQL",
+    "question": "Which predicate correctly finds rows where a column has no value?",
+    "options": [
+      "column_name NULL()",
+      "column_name = NULL",
+      "column_name == NULL",
+      "column_name IS NULL"
+    ],
+    "explanation": "SQL uses IS NULL because NULL is not tested with ordinary equality.",
+    "difficulty": "Beginner",
+    "answer": "column_name IS NULL"
+  },
+  {
+    "id": "sql-03",
+    "language": "SQL",
+    "question": "Which clause groups rows so aggregate functions can calculate one result per department?",
+    "options": [
+      "GROUP BY department_id",
+      "ORDER BY department_id",
+      "PARTITION department_id",
+      "JOIN department_id"
+    ],
+    "explanation": "GROUP BY forms groups for aggregate calculations.",
+    "difficulty": "Intermediate",
+    "answer": "GROUP BY department_id"
+  },
+  {
+    "id": "sql-04",
+    "language": "SQL",
+    "question": "What does COUNT(*) count in a query result group?",
+    "options": [
+      "Only rows with no NULL columns",
+      "Every row in the group",
+      "Distinct values in the first column",
+      "The number of columns"
+    ],
+    "explanation": "COUNT(*) counts rows, including rows containing NULL values.",
+    "difficulty": "Beginner",
+    "answer": "Every row in the group"
+  },
+  {
+    "id": "sql-05",
+    "language": "SQL",
+    "question": "What is wrong with this code?\n\nUPDATE inventory\nSET quantity = 0;",
+    "options": [
+      "SET must appear after WHERE",
+      "UPDATE cannot set a numeric column to zero",
+      "It changes every row because it has no WHERE condition",
+      "It only changes rows with NULL quantity"
+    ],
+    "explanation": "Without WHERE, the update applies to all rows in the table.",
+    "difficulty": "Advanced",
+    "answer": "It changes every row because it has no WHERE condition"
+  },
+  {
+    "id": "sql-06",
+    "language": "SQL",
+    "question": "Which join keeps every row from the left table and fills unmatched right columns with NULL?",
+    "options": [
+      "UNION",
+      "INNER JOIN",
+      "CROSS JOIN",
+      "LEFT JOIN"
+    ],
+    "explanation": "LEFT JOIN preserves all left-side rows even without a match.",
+    "difficulty": "Intermediate",
+    "answer": "LEFT JOIN"
+  },
+  {
+    "id": "sql-07",
+    "language": "SQL",
+    "question": "What does this code return for scores 65, 70, 75, 80, and 90?\n\nWHERE score BETWEEN 70 AND 80",
+    "options": [
+      "Scores from 70 through 80, including both endpoints",
+      "Scores greater than 70 and less than 80 only",
+      "Only scores equal to 70 or 80",
+      "Scores outside the range"
+    ],
+    "explanation": "BETWEEN includes both boundary values.",
+    "difficulty": "Advanced",
+    "answer": "Scores from 70 through 80, including both endpoints"
+  },
+  {
+    "id": "sql-08",
+    "language": "SQL",
+    "question": "Which statement adds a new row to an existing table?",
+    "options": [
+      "ALTER TABLE",
+      "INSERT INTO",
+      "UPDATE",
+      "CREATE INDEX"
+    ],
+    "explanation": "INSERT INTO adds records to a table.",
+    "difficulty": "Beginner",
+    "answer": "INSERT INTO"
+  },
+  {
+    "id": "sql-09",
+    "language": "SQL",
+    "question": "What does this query calculate for each employee?\n\nSELECT employee_id, department_id,\n       DENSE_RANK() OVER (\n           PARTITION BY department_id\n           ORDER BY salary DESC\n       ) AS salary_rank\nFROM employees;",
+    "options": [
+      "A unique global rank ordered by employee_id",
+      "A separate row number for each employee, including a different number for ties",
+      "A salary rank within each department; ties share a rank and the next rank has no gap",
+      "One highest salary row per department, with all other employees removed"
+    ],
+    "explanation": "PARTITION BY restarts ranking per department; DENSE_RANK gives equal salaries equal ranks without gaps.",
+    "difficulty": "Advanced",
+    "answer": "A salary rank within each department; ties share a rank and the next rank has no gap"
+  },
+  {
+    "id": "sql-10",
+    "language": "SQL",
+    "question": "What does DELETE FROM logs WHERE id = 4 remove?",
+    "options": [
+      "Only rows where id is NULL",
+      "The table definition",
+      "Every row in logs",
+      "Rows whose id equals 4"
+    ],
+    "explanation": "The WHERE condition limits deletion to matching rows.",
+    "difficulty": "Beginner",
+    "answer": "Rows whose id equals 4"
+  },
+  {
+    "id": "htmlcss-01",
+    "language": "HTML/CSS",
+    "question": "Which declaration makes an element a flex container?",
+    "options": [
+      "display: flex",
+      "position: flex",
+      "flex: display",
+      "align-items: flex"
+    ],
+    "explanation": "display: flex establishes a flex formatting context.",
+    "difficulty": "Beginner",
+    "answer": "display: flex"
+  },
+  {
+    "id": "htmlcss-02",
+    "language": "HTML/CSS",
+    "question": "How is a visible HTML label programmatically associated with an input?",
+    "options": [
+      "Set the label name to the input name only",
+      "Set the label for value to the input id",
+      "Place the input inside a form with no label",
+      "Set aria-label on the form instead"
+    ],
+    "explanation": "The label for attribute matches the control id.",
+    "difficulty": "Beginner",
+    "answer": "Set the label for value to the input id"
+  },
+  {
+    "id": "htmlcss-03",
+    "language": "HTML/CSS",
+    "question": "Which CSS property adds space between content and its border?",
+    "options": [
+      "outline",
+      "margin",
+      "padding",
+      "border-spacing"
+    ],
+    "explanation": "Padding is the inner spacing between content and border.",
+    "difficulty": "Beginner",
+    "answer": "padding"
+  },
+  {
+    "id": "htmlcss-04",
+    "language": "HTML/CSS",
+    "question": "When should a responsive page use a media query?",
+    "options": [
+      "To validate form values",
+      "To load JavaScript modules",
+      "To create semantic headings",
+      "To apply styles when viewport conditions match"
+    ],
+    "explanation": "Media queries apply CSS based on conditions such as viewport width.",
+    "difficulty": "Intermediate",
+    "answer": "To apply styles when viewport conditions match"
+  },
+  {
+    "id": "htmlcss-05",
+    "language": "HTML/CSS",
+    "question": "Which HTML element represents the highest-level page heading?",
+    "options": [
+      "h1",
+      "header",
+      "title",
+      "main"
+    ],
+    "explanation": "h1 is the top-level heading element.",
+    "difficulty": "Beginner",
+    "answer": "h1"
+  },
+  {
+    "id": "htmlcss-06",
+    "language": "HTML/CSS",
+    "question": "Which declaration lays out a group of buttons in one inline flex row?",
+    "options": [
+      "position: absolute",
+      "display: inline-flex",
+      "float: center",
+      "text-align: flex"
+    ],
+    "explanation": "inline-flex creates a flex container that participates inline.",
+    "difficulty": "Intermediate",
+    "answer": "display: inline-flex"
+  },
+  {
+    "id": "htmlcss-07",
+    "language": "HTML/CSS",
+    "question": "What happens to font size in this CSS?\n\n.title { font-size: clamp(1rem, 3vw, 2rem); }",
+    "options": [
+      "It becomes 1rem only on mobile",
+      "It is always exactly 3vw",
+      "It scales with the viewport but stays between 1rem and 2rem",
+      "It scales without any minimum or maximum"
+    ],
+    "explanation": "clamp() constrains the preferred 3vw size between the given minimum and maximum.",
+    "difficulty": "Advanced",
+    "answer": "It scales with the viewport but stays between 1rem and 2rem"
+  },
+  {
+    "id": "htmlcss-08",
+    "language": "HTML/CSS",
+    "question": "What is wrong with this code?\n\n@media (max-width: 700px) { .nav { display: none; } }",
+    "options": [
+      "The rule changes the document language",
+      "Media queries cannot use max-width",
+      "display:none keeps the nav visible",
+      "It hides navigation without showing an accessible way to reveal it"
+    ],
+    "explanation": "A toggle and a state-aware way to expose the links are needed on small screens.",
+    "difficulty": "Advanced",
+    "answer": "It hides navigation without showing an accessible way to reveal it"
+  },
+  {
+    "id": "htmlcss-09",
+    "language": "HTML/CSS",
+    "question": "Which combination communicates a form validation error most clearly?",
+    "options": [
+      "Visible error text with a matching visual indicator",
+      "A red border without a message",
+      "A tooltip that disappears on focus",
+      "Changing the placeholder only"
+    ],
+    "explanation": "Use text and a visual cue so the error is not communicated by color alone.",
+    "difficulty": "Intermediate",
+    "answer": "Visible error text with a matching visual indicator"
+  },
+  {
+    "id": "htmlcss-10",
+    "language": "HTML/CSS",
+    "question": "What does this code select?\n\nbutton:focus { outline: 2px solid currentColor; }",
+    "options": [
+      "Only buttons under a pointer hover",
+      "A focused button, with a visible keyboard focus outline",
+      "Every disabled button",
+      "Buttons after they are submitted"
+    ],
+    "explanation": ":focus matches the element that currently has keyboard or programmatic focus.",
+    "difficulty": "Advanced",
+    "answer": "A focused button, with a visible keyboard focus outline"
+  },
+  {
+    "id": "c++-01",
+    "language": "C++",
+    "question": "Which standard header declares std::vector?",
+    "options": [
+      "#include <list>",
+      "#include <array>",
+      "#include <vector>",
+      "#include <algorithm>"
+    ],
+    "explanation": "std::vector is declared in the vector header.",
+    "difficulty": "Beginner",
+    "answer": "#include <vector>"
+  },
+  {
+    "id": "c++-02",
+    "language": "C++",
+    "question": "Which operator accesses a member through a pointer?",
+    "options": [
+      "&",
+      ".",
+      "::",
+      "->"
+    ],
+    "explanation": "The arrow operator accesses a member through a pointer.",
+    "difficulty": "Beginner",
+    "answer": "->"
+  },
+  {
+    "id": "c++-03",
+    "language": "C++",
+    "question": "Which loop form directly visits each element in a container without an index?",
+    "options": [
+      "Range-based for loop",
+      "switch statement",
+      "do-while loop only",
+      "if statement"
+    ],
+    "explanation": "A range-based for loop iterates over each element in a range.",
+    "difficulty": "Beginner",
+    "answer": "Range-based for loop"
+  },
+  {
+    "id": "c++-04",
+    "language": "C++",
+    "question": "What does an int& function parameter represent?",
+    "options": [
+      "A pointer that must be deleted",
+      "A reference to an existing int",
+      "A copy of the int",
+      "A constant integer literal"
+    ],
+    "explanation": "A reference parameter aliases the caller?s object rather than copying it.",
+    "difficulty": "Beginner",
+    "answer": "A reference to an existing int"
+  },
+  {
+    "id": "c++-05",
+    "language": "C++",
+    "question": "What is wrong with this code?\n\nint* value = nullptr;\nstd::cout << *value;",
+    "options": [
+      "nullptr is a valid int object",
+      "It prints the integer zero",
+      "It dereferences a null pointer, causing undefined behavior",
+      "The pointer is automatically allocated"
+    ],
+    "explanation": "A null pointer does not point to an object and must not be dereferenced.",
+    "difficulty": "Advanced",
+    "answer": "It dereferences a null pointer, causing undefined behavior"
+  },
+  {
+    "id": "c++-06",
+    "language": "C++",
+    "question": "What does this code print?\n\nstd::vector<int> values{3, 1, 3, 2, 1};\nstd::sort(values.begin(), values.end());\nauto uniqueEnd = std::unique(values.begin(), values.end());\nvalues.erase(uniqueEnd, values.end());\nstd::cout << values.size() << \":\" << values[1];",
+    "options": [
+      "5:1 because unique removes no values",
+      "3:1 because unique preserves the first repeated value",
+      "2:3 because erase removes every value after the second",
+      "3:2 because sorting makes duplicates adjacent before unique compacts them"
+    ],
+    "explanation": "Sorting makes equal values adjacent, std::unique moves the distinct values to the front, and erase removes the unused tail.",
+    "difficulty": "Advanced",
+    "answer": "3:2 because sorting makes duplicates adjacent before unique compacts them"
+  },
+  {
+    "id": "c++-07",
+    "language": "C++",
+    "question": "How can a function parameter use a fallback when the caller omits an argument?",
+    "options": [
+      "Give the parameter a default argument in its declaration",
+      "Make the parameter a reference",
+      "Declare the parameter as an enum",
+      "Return a value before the function call"
+    ],
+    "explanation": "A default argument supplies a value when the call omits that parameter.",
+    "difficulty": "Intermediate",
+    "answer": "Give the parameter a default argument in its declaration"
+  },
+  {
+    "id": "c++-08",
+    "language": "C++",
+    "question": "What does vector.resize(4, 0) do when the vector has two elements?",
+    "options": [
+      "Reserves four bytes but keeps its size unchanged",
+      "Changes its size to four and initializes new elements to zero",
+      "Sorts the vector and removes two elements",
+      "Changes the element type to int"
+    ],
+    "explanation": "resize changes the element count and uses the provided value for added elements.",
+    "difficulty": "Intermediate",
+    "answer": "Changes its size to four and initializes new elements to zero"
+  },
+  {
+    "id": "c++-09",
+    "language": "C++",
+    "question": "What does this loop print?\n\nstd::istringstream input(\"red blue\");\nstd::string word;\nstd::getline(input, word);\nstd::cout << word;",
+    "options": [
+      "blue",
+      "red",
+      "red blue",
+      "An empty string"
+    ],
+    "explanation": "getline reads through the newline delimiter, so the entire input line is stored.",
+    "difficulty": "Advanced",
+    "answer": "red blue"
+  },
+  {
+    "id": "c++-10",
+    "language": "C++",
+    "question": "What is a common advantage of passing a large object by const reference?",
+    "options": [
+      "It always makes the function asynchronous",
+      "It transfers ownership and deletes the original",
+      "It guarantees the object is stored on the stack",
+      "It avoids a copy while preventing mutation through that parameter"
+    ],
+    "explanation": "A const reference avoids copying and prevents writes through that reference.",
+    "difficulty": "Intermediate",
+    "answer": "It avoids a copy while preventing mutation through that parameter"
+  }
+]
